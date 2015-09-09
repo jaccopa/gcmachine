@@ -2,5 +2,5 @@
 #define comm_h
 
 #include "log.h"
-
+#include "stdio.h"
 #endif

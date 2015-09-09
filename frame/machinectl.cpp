@@ -1,5 +1,6 @@
 #include "machine.h"
 #include <iostream>
+#include "comm.h"
 using namespace::std;
 
 gcMachine::gcMachine()
@@ -28,6 +29,13 @@ retValue gcMachine::initMotion()
 
 void gcMachine::working()
 {
+	string msg;
+	msg        += "__gcMachine::working()__";
+	msg		   += "__FILE__";
+	msg		   += __FILE__;
+	msg		   += "__LINE__";
+	msg		   += __LINE__;	
+	log::instance().sigAlarmLog((loglvl)debug,msg);
 	machineStatus ms = (machineStatus)gcStatus;
 	switch(ms)
 	{
@@ -60,6 +68,8 @@ void gcMachine::working()
 
 int main()
 {
+	log::instance().startService();
+	log::instance().changeLevel((loglvl)debug);
 	gcMachine *gc = new gcMachine();
 	gc->working();						
 	delete gc;

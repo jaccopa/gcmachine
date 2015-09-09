@@ -5,6 +5,17 @@
 #include <string>
 #include <unistd.h>
 #include <signal.h>
+using namespace std;
+
+#define MAX_BUFSIZE 250
+
+enum TimeForMat
+{
+	TIME_FORMAT_DATETIME,
+	TIME_FORMAT_TIME,
+	TIME_FORMAT_DATE,
+	TIME_FORMAT_FILENAME
+}
 
 template <class T>
 class Singleton
@@ -15,12 +26,13 @@ public:
 		static T _instance;
 		return _instance;
 	}
+
 protected:
 	Singleton(void){}
 	virtual ~Singleton(void){}
 	Singleton(const Singleton<T>&);
 	Singleton<T>& operator=(const Singleton<T>&);
-}
+};
 
 typedef enum _loglevel
 {
@@ -33,18 +45,29 @@ typedef enum _loglevel
 class log:public Singleton<log>
 {
 public:
-	void startService();
-	void stopService();
-	void changeLevel(loglvl);	
-	void changePath(string);
+	bool 	startService();
+	void 	stopService();
+	void 	changeLevel(loglvl);	
+	void 	changePath(string);
+	//void    sigAlarmLog(loglvl lvl,string logmsg);	
+	void 	writeLog(char *fmt,...);
+	loglvl  getLogLevel();
+	
 private:
 	log();
 	~log();
-	
-	static bool  flagPrintLog;
+
+	int		getCurFilePath(char *lpOut);
+	int		getCurDir(char *lpOutDir);		
+	int 	getTime(char *out,int fmt);
+	int		writeFile(FILE *fp,const char *str,int bLog);
+	int		closeFile(FILE *fp);
+	FILE*	openFile(const char *fileName,const char *mode);
+
+	bool  		 flagPrintLog;
 	friend class Singleton<log>;
-	loglvl loglevel = (loglvl)err;
-	string logPath;
-	void   sigAlarmLog(int);	
-}
+	loglvl		 loglevel;
+	string 		 logPath;
+};
+
 #endif

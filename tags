@@ -4,21 +4,47 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-FAIL	./frame/machine.h	/^	FAIL,$/;"	e	enum:_retValue
-SUCCESS	./frame/machine.h	/^	SUCCESS,$/;"	e	enum:_retValue
-_machineStatus	./frame/machine.h	/^typedef enum _machineStatus$/;"	g
-_retValue	./frame/machine.h	/^typedef enum _retValue$/;"	g
-gcMachine	./frame/machine.h	/^class gcMachine$/;"	c
-gcMachine	./frame/machinectl.cpp	/^gcMachine::gcMachine()$/;"	f	class:gcMachine
-gcStatus	./frame/machine.h	/^	machineStatus gcStatus;$/;"	m	class:gcMachine
-init	./frame/machine.h	/^	init,$/;"	e	enum:_machineStatus
-initMotion	./frame/machinectl.cpp	/^retValue gcMachine::initMotion()$/;"	f	class:gcMachine
-initWater	./frame/machinectl.cpp	/^retValue gcMachine::initWater()$/;"	f	class:gcMachine
-machineStatus	./frame/machine.h	/^}machineStatus;$/;"	t	typeref:enum:_machineStatus
-machine_h	./frame/machine.h	2;"	d
-main	./frame/machinectl.cpp	/^int main()$/;"	f
-rebootSystem	./frame/machinectl.cpp	/^void rebootSystem()$/;"	f
-retValue	./frame/machine.h	/^}retValue;$/;"	t	typeref:enum:_retValue
-work	./frame/machine.h	/^	work,$/;"	e	enum:_machineStatus
-working	./frame/machinectl.cpp	/^void gcMachine::working()$/;"	f	class:gcMachine
-~gcMachine	./frame/machinectl.cpp	/^gcMachine::~gcMachine()$/;"	f	class:gcMachine
+FAIL	frame/machine.h	/^	FAIL,$/;"	e	enum:_retValue
+SUCCESS	frame/machine.h	/^	SUCCESS,$/;"	e	enum:_retValue
+Singleton	frame/log.h	/^	Singleton(void){}$/;"	f	class:Singleton
+Singleton	frame/log.h	/^class Singleton$/;"	c
+_loglevel	frame/log.h	/^typedef enum _loglevel$/;"	g
+_machineStatus	frame/machine.h	/^typedef enum _machineStatus$/;"	g
+_retValue	frame/machine.h	/^typedef enum _retValue$/;"	g
+changeLevel	frame/log.cpp	/^void log::changeLevel(loglvl lv)$/;"	f	class:log
+changePath	frame/log.cpp	/^void log::changePath(string strPath)$/;"	f	class:log
+comm_h	frame/comm.h	2;"	d
+debug	frame/log.h	/^	debug,$/;"	e	enum:_loglevel
+err	frame/log.h	/^	err,$/;"	e	enum:_loglevel
+flagPrintLog	frame/log.h	/^	bool  		 flagPrintLog;$/;"	m	class:log
+gcMachine	frame/machine.h	/^class gcMachine$/;"	c
+gcMachine	frame/machinectl.cpp	/^gcMachine::gcMachine()$/;"	f	class:gcMachine
+gcStatus	frame/machine.h	/^	machineStatus gcStatus;$/;"	m	class:gcMachine
+getLogLevel	frame/log.cpp	/^loglvl log::getLogLevel()$/;"	f	class:log
+info	frame/log.h	/^	info,$/;"	e	enum:_loglevel
+init	frame/machine.h	/^	init,$/;"	e	enum:_machineStatus
+initMotion	frame/machinectl.cpp	/^retValue gcMachine::initMotion()$/;"	f	class:gcMachine
+initWater	frame/machinectl.cpp	/^retValue gcMachine::initWater()$/;"	f	class:gcMachine
+instance	frame/log.h	/^	static T& instance()$/;"	f	class:Singleton
+log	frame/log.cpp	/^log::log()$/;"	f	class:log
+log	frame/log.h	/^class log:public Singleton<log>$/;"	c
+logPath	frame/log.h	/^	string 		 logPath;$/;"	m	class:log
+log_h	frame/log.h	2;"	d
+loglevel	frame/log.h	/^	loglvl		 loglevel;$/;"	m	class:log
+loglvl	frame/log.h	/^}loglvl; $/;"	t	typeref:enum:_loglevel
+machineStatus	frame/machine.h	/^}machineStatus;$/;"	t	typeref:enum:_machineStatus
+machine_h	frame/machine.h	2;"	d
+main	frame/machinectl.cpp	/^int main()$/;"	f
+main	test/alarm.c	/^int main(void)$/;"	f
+rebootSystem	frame/machinectl.cpp	/^void rebootSystem()$/;"	f
+retValue	frame/machine.h	/^}retValue;$/;"	t	typeref:enum:_retValue
+sigAlarmLog	frame/log.cpp	/^void log::sigAlarmLog(loglvl lvl,string logmsg)$/;"	f	class:log
+signal_fn	test/alarm.c	/^void signal_fn(int sig)$/;"	f
+startService	frame/log.cpp	/^bool log::startService()$/;"	f	class:log
+stopService	frame/log.cpp	/^void log::stopService()$/;"	f	class:log
+warning	frame/log.h	/^	warning,$/;"	e	enum:_loglevel
+work	frame/machine.h	/^	work,$/;"	e	enum:_machineStatus
+working	frame/machinectl.cpp	/^void gcMachine::working()$/;"	f	class:gcMachine
+~Singleton	frame/log.h	/^	virtual ~Singleton(void){}$/;"	f	class:Singleton
+~gcMachine	frame/machinectl.cpp	/^gcMachine::~gcMachine()$/;"	f	class:gcMachine
+~log	frame/log.cpp	/^log::~log()$/;"	f	class:log
