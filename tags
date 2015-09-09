@@ -4,17 +4,21 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-FAIL	frame/machine.h	/^	FAIL,$/;"	e	enum:_retValue
-SUCCESS	frame/machine.h	/^	SUCCESS,$/;"	e	enum:_retValue
-_machineStatus	frame/machine.h	/^typedef enum _machineStatus$/;"	g
-_retValue	frame/machine.h	/^typedef enum _retValue$/;"	g
-gcMachine	frame/machine.h	/^class gcMachine$/;"	c
-gcMachine	frame/machinectl.cpp	/^gcMachine::gcMachine()$/;"	f	class:gcMachine
-gcStatus	frame/machine.h	/^	static machineStatus gcStatus;$/;"	m	class:gcMachine
-init	frame/machine.h	/^	init,$/;"	e	enum:_machineStatus
-machineStatus	frame/machine.h	/^}machineStatus;$/;"	t	typeref:enum:_machineStatus
-machine_h	frame/machine.h	2;"	d
-rebootSystem	frame/machinectl.cpp	/^void rebootSystem()$/;"	f
-retValue	frame/machine.h	/^}retValue;$/;"	t	typeref:enum:_retValue
-working	frame/machine.h	/^	working,$/;"	e	enum:_machineStatus
-~gcMachine	frame/machinectl.cpp	/^gcMachine::~gcMachine()$/;"	f	class:gcMachine
+FAIL	./frame/machine.h	/^	FAIL,$/;"	e	enum:_retValue
+SUCCESS	./frame/machine.h	/^	SUCCESS,$/;"	e	enum:_retValue
+_machineStatus	./frame/machine.h	/^typedef enum _machineStatus$/;"	g
+_retValue	./frame/machine.h	/^typedef enum _retValue$/;"	g
+gcMachine	./frame/machine.h	/^class gcMachine$/;"	c
+gcMachine	./frame/machinectl.cpp	/^gcMachine::gcMachine()$/;"	f	class:gcMachine
+gcStatus	./frame/machine.h	/^	machineStatus gcStatus;$/;"	m	class:gcMachine
+init	./frame/machine.h	/^	init,$/;"	e	enum:_machineStatus
+initMotion	./frame/machinectl.cpp	/^retValue gcMachine::initMotion()$/;"	f	class:gcMachine
+initWater	./frame/machinectl.cpp	/^retValue gcMachine::initWater()$/;"	f	class:gcMachine
+machineStatus	./frame/machine.h	/^}machineStatus;$/;"	t	typeref:enum:_machineStatus
+machine_h	./frame/machine.h	2;"	d
+main	./frame/machinectl.cpp	/^int main()$/;"	f
+rebootSystem	./frame/machinectl.cpp	/^void rebootSystem()$/;"	f
+retValue	./frame/machine.h	/^}retValue;$/;"	t	typeref:enum:_retValue
+work	./frame/machine.h	/^	work,$/;"	e	enum:_machineStatus
+working	./frame/machinectl.cpp	/^void gcMachine::working()$/;"	f	class:gcMachine
+~gcMachine	./frame/machinectl.cpp	/^gcMachine::~gcMachine()$/;"	f	class:gcMachine

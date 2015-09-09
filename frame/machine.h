@@ -4,7 +4,7 @@
 typedef enum _machineStatus
 {
 	init,
-	working,
+	work,
 }machineStatus;
 
 typedef enum _retValue
@@ -16,8 +16,11 @@ typedef enum _retValue
 class gcMachine
 {
 public:
+	machineStatus gcStatus;
+
 	void rebootSystem();
-protect:
+	void working();
+//protect:
 	gcMachine();
 	~gcMachine();
 
@@ -25,5 +28,6 @@ private:
 	retValue initWater();
 	retValue initMotion(); 
 
-	static machineStatus gcStatus;
-}
+};
+
+#endif
