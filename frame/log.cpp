@@ -57,23 +57,6 @@ loglvl log::getLogLevel()
 	return this->loglevel;	
 }
 
-/*
-void log::sigAlarmLog(loglvl lvl,string logmsg)
-{
-	if(true == this->flagPrintLog)
-	{
-		if(this->getLogLevel() >= lvl)
-		{
-		}
-	}
-	else
-	{
-		cout << "logfunction closed!!!" << endl;
-	}
-	return;	
-}
-*/
-
 void log::writeLog(const char *fmt, ...)
 {
     char fname[20]                  = {0};
