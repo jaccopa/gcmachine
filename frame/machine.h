@@ -1,6 +1,8 @@
 #ifndef machine_h
 #define machine_h
 
+#include "log.h"
+
 typedef enum _machineStatus
 {
 	init,
@@ -13,21 +15,25 @@ typedef enum _retValue
 	SUCCESS,
 }retValue;
 
-class gcMachine
+class gcMachine:public Singleton<gcMachine>
 {
 public:
-	machineStatus gcStatus;
+    machineStatus gcStatus;
 
 	void rebootSystem();
-	void working();
+    void working();
+
+    bool flagOfInitWaterSuccess;
+    bool flagOfInitMotionSuccess;
 //protect:
-	gcMachine();
-	~gcMachine();
 
 private:
-	retValue initWater();
-	retValue initMotion(); 
+    gcMachine();
+    ~gcMachine();
 
+    retValue initWater();
+    retValue initMotion();
+    friend class Singleton<gcMachine>;
 };
 
 #endif
