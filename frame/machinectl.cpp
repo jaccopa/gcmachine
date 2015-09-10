@@ -29,13 +29,12 @@ retValue gcMachine::initMotion()
 
 void gcMachine::working()
 {
-	string msg;
-	msg        += "__gcMachine::working()__";
-	msg		   += "__FILE__";
-	msg		   += __FILE__;
-	msg		   += "__LINE__";
-	msg		   += __LINE__;	
-	log::instance().sigAlarmLog((loglvl)debug,msg);
+	char funcname[50] = {0};
+    const char * name = "gcMachine::working()";
+	strcpy(funcname,name);
+    if(loglvl(info) <= log::instance().getLogLevel())
+        log::instance().writeLog("file:%s--function:%s---line:%d---[%s]",__FILE__,funcname,__LINE__,"gcMachine working");
+
 	machineStatus ms = (machineStatus)gcStatus;
 	switch(ms)
 	{
@@ -68,11 +67,22 @@ void gcMachine::working()
 
 int main()
 {
+    char funcname[50] = {0};
+    const char *name = "main() ";
+    const char *cause= "system starting";
 	log::instance().startService();
 	log::instance().changeLevel((loglvl)debug);
+    strcpy(funcname,name);
+    if(loglvl(info) <= log::instance().getLogLevel())
+    {
+        log::instance().writeLog("file:%s--function:%s---line:%d---[%s]",__FILE__,funcname,__LINE__,cause);
+    }
+
 	gcMachine *gc = new gcMachine();
-	gc->working();						
+    gc->working();
 	delete gc;
+
+    log::instance().stopService();
 	cout << "OK" << endl;
 	return 0;
 }
