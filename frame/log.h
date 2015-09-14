@@ -13,6 +13,8 @@
 using namespace std;
 
 #define MAX_BUFSIZE 250
+#define LOGTRACE(x)  (loglvl(x) <= log::instance().getLogLevel())
+
 
 enum TimeForMat
 {

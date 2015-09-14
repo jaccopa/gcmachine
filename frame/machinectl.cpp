@@ -24,11 +24,10 @@ retValue gcMachine::initWater()
     char funcname[50] = {0};
     const char * name = "gcMachine::initWater()";
     strcpy(funcname,name);
-    if(loglvl(info) <= log::instance().getLogLevel())
+    if(true == LOGTRACE(info))
     {
         log::instance().writeLog("file:%s--function:%s---line:%d---[%s]",__FILE__,funcname,__LINE__,"entering gcMachine::initWater()");
     }
-
 
 	return SUCCESS;
 }
@@ -38,7 +37,7 @@ retValue gcMachine::initMotion()
     char funcname[50] = {0};
     const char * name = "gcMachine::initMotion()";
     strcpy(funcname,name);
-    if(loglvl(info) <= log::instance().getLogLevel())
+    if(true == LOGTRACE(info))
     {
         log::instance().writeLog("file:%s--function:%s---line:%d---[%s]",__FILE__,funcname,__LINE__,"entering gcMachine::initWater()");
     }
@@ -52,7 +51,7 @@ void gcMachine::working()
 	char funcname[50] = {0};
     const char * name = "gcMachine::working()";
 	strcpy(funcname,name);
-    if(loglvl(info) <= log::instance().getLogLevel())
+    if(true == LOGTRACE(info))
     {
         log::instance().writeLog("file:%s--function:%s---line:%d---[%s]",__FILE__,funcname,__LINE__,"entering gcMachine::working()");
     }
@@ -61,7 +60,7 @@ void gcMachine::working()
 	switch(ms)
 	{
 		case init:
-            if(loglvl(debug) <= log::instance().getLogLevel())
+            if(true == LOGTRACE(debug))
             {
                 log::instance().writeLog("file:%s-----line:%d---[%s]",__FILE__,__LINE__,"entering gcMachine state--init !!!");
             }
@@ -72,7 +71,7 @@ void gcMachine::working()
                 {
                     flagOfInitWaterSuccess = false;
                     cout << "initWaterFailed" << endl;
-                    if(loglvl(err) <= log::instance().getLogLevel())
+                    if(true == LOGTRACE(err))
                     {
                         log::instance().writeLog("file:%s-----line:%d---[%s]",__FILE__,__LINE__,"initWaterFailed!!!");
                     }
@@ -81,7 +80,7 @@ void gcMachine::working()
                 {
                     flagOfInitWaterSuccess = true;
                     cout << "initWaterSuccess" << endl;
-                    if(loglvl(debug) <= log::instance().getLogLevel())
+                    if(true == LOGTRACE(debug))
                     {
                         log::instance().writeLog("file:%s-----line:%d---[%s]",__FILE__,__LINE__,"initWaterSuccess!!!");
                     }
@@ -94,7 +93,7 @@ void gcMachine::working()
                 {
                     flagOfInitMotionSuccess = false;
                     cout << "initMotionFailed" << endl;
-                    if(loglvl(err) <= log::instance().getLogLevel())
+                    if(true == LOGTRACE(debug))
                     {
                         log::instance().writeLog("file:%s-----line:%d---[%s]",__FILE__,__LINE__,"initMotionFailed!!!");
                     }
@@ -103,7 +102,7 @@ void gcMachine::working()
                 {
                     flagOfInitMotionSuccess = true;
                     cout << "initMotionSuccess" << endl;
-                    if(loglvl(debug) <= log::instance().getLogLevel())
+                    if(true == LOGTRACE(debug))
                     {
                         log::instance().writeLog("file:%s-----line:%d---[%s]",__FILE__,__LINE__,"initMotionSuccess!!!");
                     }
@@ -123,7 +122,7 @@ void gcMachine::working()
         break;
 
 		case work:
-            if(loglvl(debug) <= log::instance().getLogLevel())
+            if(true == LOGTRACE(debug))
             {
                 log::instance().writeLog("file:%s-----line:%d---[%s]",__FILE__,__LINE__,"entering gcMachine state--work !!!");
             }
@@ -140,12 +139,9 @@ int main()
     const char *name = "main() ";
     const char *cause= "system starting";
 	log::instance().startService();
-	log::instance().changeLevel((loglvl)debug);
+    log::instance().changeLevel((loglvl)debug);
     strcpy(funcname,name);
-    if(loglvl(info) <= log::instance().getLogLevel())
-    {
-        log::instance().writeLog("file:%s--function:%s---line:%d---[%s]",__FILE__,funcname,__LINE__,cause);
-    }
+    log::instance().writeLog("file:%s--function:%s---line:%d---[%s]",__FILE__,funcname,__LINE__,cause);
 
     gcMachine::instance().gcStatus = (machineStatus)init;
     gcMachine::instance().working();
