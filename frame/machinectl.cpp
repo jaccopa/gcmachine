@@ -133,7 +133,9 @@ void gcMachine::working()
 	}	
 }
 
-int main()
+
+
+int main(int argc,char** argv)
 {
     char funcname[50] = {0};
     const char *name = "main() ";
@@ -142,11 +144,13 @@ int main()
     log::instance().changeLevel((loglvl)debug);
     strcpy(funcname,name);
     log::instance().writeLog("file:%s--function:%s---line:%d---[%s]",__FILE__,funcname,__LINE__,cause);
-
+/*
     gcMachine::instance().gcStatus = (machineStatus)init;
     gcMachine::instance().working();
+*/
+
+
 
     log::instance().stopService();
 	cout << "OK" << endl;
-	return 0;
 }

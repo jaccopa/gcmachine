@@ -3,6 +3,12 @@
 
 #include "log.h"
 
+#include <QDeclarativeView>
+#include <QApplication>
+#include <QMouseEvent>
+#include <QBoxLayout>
+#include <QStackedWidget>
+
 typedef enum _machineStatus
 {
 	init,
@@ -34,6 +40,17 @@ private:
     retValue initWater();
     retValue initMotion();
     friend class Singleton<gcMachine>;
+};
+
+class DaVinciApplication : public QApplication
+{
+    Q_OBJECT
+public:
+    DaVinciApplication(int &argc,char** argv);
+    virtual ~DaVinciApplication();
+    bool setup();
+private:
+    QDeclarativeView *m_view;
 };
 
 #endif
