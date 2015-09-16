@@ -5,6 +5,7 @@
 #include "log.h"
 #include <QSize>
 #include <QPoint>
+#include <QRect>
 
 class targetArea:public Singleton<targetArea>
 {
@@ -28,7 +29,7 @@ public:
     //void drawTargetRect();
     void setTargetRect(int,int,int,int);
     void setTargetRect(int,int);
-    QPoint getTargetRect() const;
+    QRect getTargetRect() const;
     QSize getTargetRectSize() const;
 
     void setPaletteSize(int,int);

@@ -109,16 +109,29 @@ void targetArea::setTargetRect(int x,int y ,int width,int height)
 
 void targetArea::setTargetRect(int x,int y)
 {
-    this->targetRectX = x;
-    this->targetRectY = y;
-    this->targetRectWidth = 2 * qAbs(this->targetVLineX1 - this->targetRectX);
-    this->targetRectHeight = 2 * qAbs(qAbs(this->targetHLineY1 - this->targetHLineY2) / 2  - this->targetRectY);
+    if(this->targetHLineY1 > y)
+    {
+        if(x <= this->targetVLineX1)
+        {
+            this->targetRectX = x;
+            this->targetRectY = y;
+            this->targetRectWidth = 2 * qAbs(this->targetVLineX1 - this->targetRectX);
+            this->targetRectHeight = this->targetHLineY1 - this->targetRectY;
+        }
+        else
+        {
+            this->targetRectWidth = 2 * (x - this->targetVLineX1);
+            this->targetRectHeight = this->targetHLineY1 - y;
+            this->targetRectX = x - this->targetRectWidth;
+            this->targetRectY = y;
+        }
+    }
 }
 
-QPoint targetArea::getTargetRect() const
+QRect targetArea::getTargetRect() const
 {
-    QPoint qp(this->targetRectX,this->targetRectY);
-    return qp;
+    QRect qr(this->targetRectX,this->targetRectY,this->targetRectWidth,this->targetRectHeight);
+    return qr;
 }
 
 QSize targetArea::getTargetRectSize() const
