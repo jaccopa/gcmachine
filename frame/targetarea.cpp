@@ -107,9 +107,15 @@ void targetArea::setTargetRect(int x,int y ,int width,int height)
     this->targetRectHeight = height;
 }
 
+bool targetArea::beInArea(int x ,int y )
+{
+    if(true == (x >= (int)curminx)&&(x <= (int)curmaxx)&&(y >= (int)curminy)&&(y <= (int)curmaxy)) return true;
+    return false;
+}
+
 void targetArea::setTargetRect(int x,int y)
 {
-    if(this->targetHLineY1 > y)
+    if(true == beInArea(x,y) && this->targetHLineY1 > y)
     {
         if(x <= this->targetVLineX1)
         {

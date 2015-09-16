@@ -7,6 +7,11 @@
 #include <QPoint>
 #include <QRect>
 
+#define curminx 50
+#define curminy 100
+#define curmaxx 400
+#define curmaxy 400
+
 class targetArea:public Singleton<targetArea>
 {
 public:
@@ -39,6 +44,7 @@ public:
 
     //void drawElipse();
     //void drawSRect();
+    bool beInArea( int x , int y );
 
 private:
     targetArea();
